@@ -1,0 +1,2 @@
+//react-tostify = used to display toast notifications in web applications. A toast notification is a small, unobtrusive message that appears on the screen to provide feedback or updates to the user
+// mongoose = to connect the mongodb database
