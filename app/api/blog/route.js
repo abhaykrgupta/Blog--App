@@ -11,39 +11,39 @@ const LoadDb = async () => {
 // Call the LoadDb function immediately
 LoadDb();
 
+// Api endpoints to get all the blogs
 export async function GET(request) {
-  return NextResponse.json({ abhay: "API Working" });
+  const blogId = request.nextUrl.searchParams.get("id");
+  if (blogId) {
+    const blog = await BlogModel.findById(blogId);
+    return NextResponse.json(blog);
+  }else{
+    const blogs = await BlogModel.find({})
+    return NextResponse.json({blogs});
+  }
 }
 
-// Create the API for handling POST requests
+// Create the API // api endpoints for uploading blogs
 export async function POST(request) {
   const formData = await request.formData();
   const timestamp = Date.now();
 
   // Extract and save the main image
-  const mainImage = formData.get("image"); // Ensure the correct variable name
-  const mainImageByteData = await mainImage.arrayBuffer();
-  const mainBuffer = Buffer.from(mainImageByteData);
-  const mainImagePath = `./public/${timestamp}_${mainImage.name}`;
-  await writeFile(mainImagePath, mainBuffer);
-  const mainImageUrl = `/${timestamp}_${mainImage.name}`;
-
-  // Extract and save the author image
-  const authorImage = formData.get("authorImage");
-  const authorImageByteData = await authorImage.arrayBuffer();
-  const authorBuffer = Buffer.from(authorImageByteData);
-  const authorImagePath = `./public/${timestamp}_${authorImage.name}`;
-  await writeFile(authorImagePath, authorBuffer);
-  const authorImageUrl = `/${timestamp}_${authorImage.name}`;
+  const Image = formData.get("image"); // Ensure the correct variable name
+  const ImageByteData = await Image.arrayBuffer();
+  const mainBuffer = Buffer.from(ImageByteData);
+  const ImagePath = `./public/${timestamp}_${Image.name}`;
+  await writeFile(ImagePath, mainBuffer);
+  const ImageUrl = `/${timestamp}_${Image.name}`;
 
   // Creating the object for all form data
   const blogData = {
-    title: formData.get("title"),
-    description: formData.get("description"),
-    category: formData.get("category"),
-    author: formData.get("author"),
-    image: mainImageUrl, // Use the correct URL for the main image
-    authorImage: authorImageUrl, // Use the correct URL for the author image
+    title: `${formData.get("title")}`,
+    description: `${formData.get("description")}`,
+    category: `${formData.get("category")}`,
+    author: `${formData.get("author")}`,
+    image: `${ImageUrl}`, // Use the correct URL for the main image
+    authorImage: "/Author_img.png", // Use the correct URL for the author image
   };
 
   // Save the blog data to the database
