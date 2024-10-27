@@ -39,7 +39,7 @@ const AddProduct = () => {
         // Reset form fields after successful submission
         setImage(null); // Reset image to null instead of false
         setData({
-          title: "",
+          title: "", 
           description: "",
           category: "",
           author: "Abhay",

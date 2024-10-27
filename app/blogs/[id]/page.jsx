@@ -77,43 +77,9 @@ const Page = ({ params }) => {
           height={60}
           alt=""
         />
-        <h1 className="my-8 text-[26px] font-semibold ">Introduction:</h1>
-        <p className="text-left">{data.description}</p>
-
-        <h3 className="my-5 text-[26px] font-semibold ">
-          Step: 1 Self-Reflection and Goal
-        </h3>
-        <p className="my-3 text-left">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum,
-          optio? Consectetur quam dolorem ducimus nemo voluptatum eos vero? Enim
-          inventore ea dignissimos, veritatis error nihil molestias aspernatur
-          vero officiis quis.
-        </p>
-
-        <h3 className="my-5 text-[26px] font-semibold ">
-          Step: 2 Setting Your Plan
-        </h3>
-        <p className="my-3 text-left">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum,
-          optio? Consectetur quam dolorem ducimus nemo voluptatum eos vero? Enim
-          inventore ea dignissimos, veritatis error nihil molestias aspernatur
-          vero officiis quis.
-        </p>
-
-        <h3 className="my-5 text-[26px] font-semibold ">Step: 3 Execution</h3>
-        <p className="my-3 text-left">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum,
-          optio? Consectetur quam dolorem ducimus nemo voluptatum eos vero? Enim
-          inventore ea dignissimos, veritatis error nihil molestias aspernatur
-          vero officiis quis.
-        </p>
-        <h3 className="my-5 text-[18px] font-semibold">Conclusion</h3>
-        <p className="my-3">
-          Managing your life style is a journery Lorem ipsum dolor, sit amet
-          consectetur adipisicing elit. Cumque beatae non a eum, dolore
-          molestias magni explicabo incidunt error facilis expedita laboriosam
-          tenetur quos consectetur omnis distinctio nisi debitis obcaecati!
-        </p>
+       <div className="blog-content" dangerouslySetInnerHTML={{__html:data.description}}>
+              
+       </div>
         <div className="my-24">
           <p className="text-black font-semibold my-4">
             Share the artical is social media
