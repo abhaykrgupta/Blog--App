@@ -5,7 +5,7 @@ import React from "react";
 import {useEffect, useState } from "react";
 import { toast } from "react-toastify";
 
-const blogList = () => {
+const BlogLists = () => {
    const [blogs, setBlogs] = useState([]);
    
    const fetchBlogs = async () =>{
@@ -59,4 +59,4 @@ const blogList = () => {
   );
 };
 
-export default blogList;
+export default BlogLists;

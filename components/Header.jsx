@@ -5,7 +5,7 @@ import Link from 'next/link';
 import React, { useState } from 'react';
 import { toast } from 'react-toastify';
 
-const Header = () => {
+const Header = ({setSearchTerm, searchTerm}) => {
   const [email, setEmail] = useState("");
 
   const onSubmitHandler = async (e) => {
@@ -35,20 +35,27 @@ const Header = () => {
           href="/"
           className="bg-black text-lg rounded-md p-2 font-semibold flex items-center justify-center"
         >
-          <span className="text-white mr-2">Blog</span>
-          <span className="text-black w-14 h-8 rounded bg-white flex items-center justify-center">
-            ger
+          <span className="text-white mr-2">Life & </span>
+          <span className="text-black w-16 h-9 rounded bg-white flex items-center justify-center">
+            Launch
           </span>
         </Link>
-        <button className='flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-5px_5px_0px_#000000]'>
-          Get Started 
-          <Image src={assets.arrow} alt="arrow icon" className='w-[12px] sm:w-auto' />
-        </button>
+       <div className="flex gap-3">
+         {/* Search input field */}
+         <input 
+          type="text" 
+          placeholder="Search blogs..." 
+          value={searchTerm} 
+          onChange={(e) => setSearchTerm(e.target.value)} 
+          className=" sm:w-[250px] md:w-[350px] p-3 items-center border outline-none border-solid border-black shadow-[-5px_5px_0px_#000000]"
+        />
+
+       </div>
       </div>
       <div className='text-center my-8'>
         <h1 className='text-3xl sm:text-5xl font-medium'>Latest Blogs</h1>
         <p className='mt-10 max-w-[740px] mx-auto text-xs sm:text-base'>
-          lorem djhcddf ndgvs jdvhj ufhjerhg nyse ufhgyb3 unbyu3a qvryq3hfb w qytr3qgbfyq yu3qbgrw3bf ehrgf ib3yfhaewrytaerhjf aeruytfgerhajbfghveg6gnyerbtvhwg
+        Welcome to our blog! Dive into the latest insights, trends, and stories across various topics that matter to you. Whether you’re looking for tech tips, lifestyle inspiration, or startup advice, we have something for everyone.
         </p>
         <form 
           onSubmit={onSubmitHandler} 

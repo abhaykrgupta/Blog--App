@@ -34,3 +34,23 @@
     font-weight: 400;
     font-size: 18px;
 }
+
+/* globals.css */
+
+body {
+    font-family: 'Roboto', sans-serif; /* Body font */
+    line-height: 1.6; /* Improves readability */
+    margin: 0;
+    padding: 0;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif; /* Heading font */
+  }
+  
+  p {
+    margin: 0 0 1.5rem; /* Spacing between paragraphs */
+  }
+  
+  /* Additional styles as needed */
+  

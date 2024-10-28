@@ -4,17 +4,21 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="flex justify-around  flex-col gap-2 sm:gap-0 sm:flex-row bg-black py-5 items-center">
-      <Image src={assets.logo_light} alt="" width={120} />
-      <p className="text-sm text-white">
-        All right reserved. copyright @blogger
-      </p>
-      <div className="flex">
-        <Image src={assets.facebook_icon} alt="" width={40} />
-        <Image src={assets.twitter_icon} alt="" width={40} />
-        <Image src={assets.googleplus_icon} alt="" width={40} />
+    <div className="flex flex-col sm:flex-row justify-around items-center bg-black py-5 px-4">
+      <div className="flex items-center gap-1 border rounded-sm p-2">
+        <span className="text-lg text-white font-bold">Life & </span>
+        <span className="text-black w-20 h-9 rounded bg-white flex items-center justify-center font-bold">
+          Launch
+        </span>
       </div>
-      hb
+      <p className="text-sm text-white text-center sm:text-left mt-2 sm:m-0">
+        All rights reserved. copyright @Life&Launch
+      </p>
+      <div className="flex gap-2 mt-2 sm:mt-0">
+        <Image src={assets.facebook_icon} alt="Facebook" width={40} height={40} />
+        <Image src={assets.twitter_icon} alt="Twitter" width={40} height={40} />
+        <Image src={assets.googleplus_icon} alt="Google Plus" width={40} height={40} />
+      </div>
     </div>
   );
 };
