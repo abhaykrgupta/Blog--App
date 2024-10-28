@@ -6,10 +6,10 @@ import React from "react";
 const Sidebar = () => {
   return (
     <div className="flex flex-col bg-slate-100">
-      <div className="px-2 sm:pl-14 py-3 border border-black">
+      <div className="px-2 sm:pl-14 py-3 border border-black ">
       <Link
           href="/"
-          className="bg-black  rounded-md w-[50%] p-0 font-bold flex items-center justify-center"
+          className="bg-black w-[50%] p-0 font-bold flex items-center justify-center  border outline-none border-solid border-gray shadow-[-5px_5px_0px_#000000]"
         >
           <span className="text-white  p-1 mr-1">Life & </span>
           <span className="text-black h-6 p-1 rounded bg-white flex items-center justify-center">

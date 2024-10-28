@@ -48,9 +48,14 @@ const Page = ({ params }) => {
               .Blog
             </span>
           </Link>
-          <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-5px_5px_0px_#000000] hover:bg-black hover:text-white transition-all duration-300">
-            Get Started <Image src={assets.arrow} alt="" />{" "}
+          <Link
+            href="/"
+          >
+                     <button className="flex items-center gap-2 font-medium py-1 px-3 sm:py-3 sm:px-6 border border-solid border-black shadow-[-5px_5px_0px_#000000] hover:bg-black hover:text-white transition-all duration-300">
+            More Blogs <Image src={assets.arrow} alt="" />{" "}
           </button>
+          </Link>
+
         </div>
 
         {/* Centering the blog post title and author */}

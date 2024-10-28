@@ -33,7 +33,7 @@ const Header = ({setSearchTerm, searchTerm}) => {
       <div className='flex justify-between items-center'>
         <Link
           href="/"
-          className="bg-black text-lg rounded-md p-2 font-semibold flex items-center justify-center"
+          className="bg-black text-lg  p-2 font-semibold flex items-center justify-center  border outline-none border-solid border-gray shadow-[-5px_5px_0px_#000000]"
         >
           <span className="text-white mr-2">Life & </span>
           <span className="text-black w-16 h-9 rounded bg-white flex items-center justify-center">

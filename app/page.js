@@ -9,14 +9,13 @@ import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
 
 const Home = () => {
-
   const [searchTerm, setSearchTerm] = useState("");
 
   return (
     <div>
       <ToastContainer theme="dark" />
       <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-      <BlogList searchTerm= {setSearchTerm}/>
+      <BlogList searchTerm={searchTerm} /> {/* Pass searchTerm to BlogList */}
       <Footer />
     </div>
   );

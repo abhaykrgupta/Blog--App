@@ -1,22 +1,16 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Blogitem from "./Blogitem";
-import { useEffect } from "react";
 import axios from "axios";
-// conecting with database and backend to display the stored blogs in frontend
 
-const BlogList = () => {
+const BlogList = ({ searchTerm }) => { // Receive searchTerm as a prop
   const [menu, setMenu] = useState("All");
   const [blogs, setBlogs] = useState([]);
 
   const fetchBlogs = async () => {
-    // Api endpoints
-    const responce = await axios.get("/api/blog");
-    setBlogs(responce.data.blogs);
-    //testing 
-    console.log(responce.data.blogs);
-    
+    const response = await axios.get("/api/blog");
+    setBlogs(response.data.blogs);
   };
- 
+
   useEffect(() => {
     fetchBlogs();
   }, []);
@@ -24,50 +18,38 @@ const BlogList = () => {
   return (
     <div>
       <div className="flex justify-center gap-6 my-10">
-        {" "}
-        {/* classname should be dynamic for logic */}
         <button
           onClick={() => setMenu("All")}
-          className={
-            menu === "All" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
-          }
+          className={menu === "All" ? "bg-black text-white py-1 px-4 rounded-sm" : ""}
         >
           All
         </button>
         <button
           onClick={() => setMenu("Technology")}
-          className={
-            menu === "Technology"
-              ? "bg-black text-white py-1 px-4 rounded-sm"
-              : ""
-          }
+          className={menu === "Technology" ? "bg-black text-white py-1 px-4 rounded-sm" : ""}
         >
-          {" "}
           Technology
         </button>
         <button
           onClick={() => setMenu("Startup")}
-          className={
-            menu === "Startup" ? "bg-black text-white py-1 px-4 rounded-sm" : ""
-          }
+          className={menu === "Startup" ? "bg-black text-white py-1 px-4 rounded-sm" : ""}
         >
-          {" "}
           Startup
         </button>
         <button
           onClick={() => setMenu("Lifestyle")}
-          className={
-            menu === "Lifestyle"
-              ? "bg-black text-white py-1 px-4 rounded-sm"
-              : ""
-          }
+          className={menu === "Lifestyle" ? "bg-black text-white py-1 px-4 rounded-sm" : ""}
         >
-          {" "}
           Lifestyle
         </button>
       </div>
       <div className="flex flex-wrap justify-around gap-1 gap-y-10 mb-10 xl:mx-24">
-        {blogs.filter((item) => (menu === "All" ? true : item.category === menu))
+        {blogs
+          .filter(item => (menu === "All" ? true : item.category === menu))
+          .filter(item =>
+            item.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+            item.description.toLowerCase().includes(searchTerm.toLowerCase())
+          )
           .map((item, index) => {
             return (
               <Blogitem
