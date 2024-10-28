@@ -1,8 +1,11 @@
+"use server"
 import ConnectDB from "@/lib/config/db";
 import { NextResponse } from "next/server";
 import { writeFile } from "fs/promises";
 import BlogModel from "@/lib/models/userModel";
+import axios from "axios";
 const fs = require('fs')
+
 
 // Connect to the database
 const LoadDb = async () => {
@@ -50,6 +53,16 @@ export async function POST(request) {
   // Save the blog data to the database
   await BlogModel.create(blogData);
   console.log("Blog Saved");
+
+  // triger email notification to suscribers 
+  try {
+     const apiUrl = `${request.headers.get('origin')}/api/notifySubscribers`;
+    await axios.post(apiUrl);
+    console.log("Subscribers notified successfully.");
+    
+  } catch (error) {
+    console.error("Failed to notify subscribers:", error);
+  }
 
   return NextResponse.json({ success: true, msg: "Blog Added" });
 }
